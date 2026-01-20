@@ -10,6 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const password = document.getElementById("password").value;
 
   fetch(`${BASE_URL}/api/login`, { 
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },

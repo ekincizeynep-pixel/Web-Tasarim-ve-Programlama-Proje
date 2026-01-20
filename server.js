@@ -1,6 +1,7 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,8 +10,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-const db = new sqlite3.Database("./database.db", err => {
-  if (err) console.error(err.message);
+const DB_PATH = path.join(__dirname, "database.db");
+const db = new sqlite3.Database(DB_PATH, (err) => {
+  if (err) console.error("SQLite bağlanamadı:", err.message);
   else console.log("SQLite veritabanına bağlandı.");
 });
 

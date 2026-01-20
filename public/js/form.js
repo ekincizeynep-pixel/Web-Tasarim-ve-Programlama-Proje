@@ -27,33 +27,34 @@ document.getElementById("cityForm").addEventListener("submit", function (e) {
     }))
     .filter(f => f.title);
 
-  fetch(`${BASE_URL}/api/cities`) , {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name,
-      description,
-      image,
-      places,
-      foods
-    }),
-  }
-    .then((res) => res.json())
-    .then(() => {
-      document.getElementById("message").innerHTML =
-        "<div class='alert alert-success'>Şehir başarıyla eklendi!</div>";
+  fetch(`${BASE_URL}/api/cities`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name,
+    description,
+    image,
+    places,
+    foods
+  }),
+})
+  .then((res) => res.json())
+  .then(() => {
+    document.getElementById("message").innerHTML =
+      "<div class='alert alert-success'>Şehir başarıyla eklendi!</div>";
 
-      document.getElementById("cityForm").reset();
-      document.getElementById("placesContainer").innerHTML = "";
-      document.getElementById("foodsContainer").innerHTML = "";
-    })
-    .catch((err) => {
-      document.getElementById("message").innerHTML =
-        "<div class='alert alert-danger'>Hata oluştu!</div>";
-      console.error(err);
-    });
+    document.getElementById("cityForm").reset();
+    document.getElementById("placesContainer").innerHTML = "";
+    document.getElementById("foodsContainer").innerHTML = "";
+  })
+  .catch((err) => {
+    document.getElementById("message").innerHTML =
+      "<div class='alert alert-danger'>Hata oluştu!</div>";
+    console.error(err);
+  });
+
 });
 
 // yer ekleme
