@@ -133,7 +133,6 @@ app.post("/api/login", (req, res) => {
     res.json({ success: false });
   }
 });
-
 app.listen(PORT, () => {
-  console.log(`Server http://localhost:${PORT} adresinde çalışıyor`);
+  console.log(`Server ${PORT} portunda çalışıyor`);
 });
