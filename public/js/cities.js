@@ -1,7 +1,7 @@
 const BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app";
 
 const isAdmin = localStorage.getItem("isAdmin") === "true";
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -61,7 +61,7 @@ fetch(`${BASE_URL}/api/cities`)
 function deleteCity(id) {
   if (!confirm("Bu şehri silmek istediğinize emin misiniz?")) return;
 
-  fetch(`http://localhost:3000/api/cities/${id}`, {
-    method: "DELETE",
+  fetch(`${BASE_URL}/api/cities/${id}`, {
+  method: "DELETE",
   }).then(() => location.reload());
 }

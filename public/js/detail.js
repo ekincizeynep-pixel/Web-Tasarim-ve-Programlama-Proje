@@ -1,7 +1,7 @@
 const BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app";
 
 const params = new URLSearchParams(window.location.search);
 const cityId = params.get("id");
@@ -185,7 +185,7 @@ function addFood() {
 }
 // şehir güncelleme
 function updateCity(city) {
-  fetch(`http://localhost:3000/api/cities/${city.id}`, {
+  fetch(`${BASE_URL}/api/cities/${city.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(city)
@@ -195,7 +195,7 @@ function updateCity(city) {
 function deleteCity(id) {
   if (!confirm("Bu şehri silmek istediğinize emin misiniz?")) return;
 
-  fetch(`http://localhost:3000/api/cities/${id}`, {
+  fetch(`${BASE_URL}/api/cities/${id}`, {
     method: "DELETE"
   }).then(() => {
     window.location.href = "cities.html";

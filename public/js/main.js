@@ -1,7 +1,7 @@
 const BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app";
 
 document.getElementById("exploreBtn").addEventListener("click", () => {
   window.location.href = "cities.html";
