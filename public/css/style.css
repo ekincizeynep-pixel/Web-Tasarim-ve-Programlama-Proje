@@ -1,0 +1,120 @@
+/* navbar kısmı için */
+.navbar {
+  padding: 12px 20px;
+}
+.navbar .nav-link {
+  color: #ddd;
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.navbar .nav-link:hover {
+  color: #fff;
+}
+.navbar .dropdown-toggle::after {
+  all: unset;
+  content: "▾";
+  margin-left: 1px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+.navbar .nav-link.active {
+  color: #fff !important;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+}
+.navbar .nav-link i {
+  margin-right: 6px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+/* genel body arka planı */
+body {
+  background: linear-gradient(
+    to right,
+    #BDBDBD 0%,
+    #E0E0E0 20%,
+    #E0E0E0 80%,
+    #BDBDBD 100%
+  );
+}
+/* hero kısmının ve arama çubuğunun arka planı da body gibi görünecek */
+.hero {
+  background: transparent;
+}
+/* header kısmı */
+header i {
+  margin-right: 8px;
+  color: #555;
+}
+/* input alanları için */
+.input-group-text {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+/* form alanları için */
+.form-control {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+/* butonlar için */
+button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+}
+/* mobilde navbar düzeni için */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+  .navbar .nav-link {
+    margin-right: 0;
+    padding: 8px 0;
+    text-align: center;
+  }
+}
+/* görselin taşmaması için */
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* dropdown için */
+.dropdown-menu {
+  display: none;
+}
+.dropdown-menu.show {
+  display: block;
+}
+/* ana sayfa animasyonu arama çubuğunda ekli*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-animate {
+  animation: fadeInUp 0.8s ease forwards;
+}
+/* kartlar için hover */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+
