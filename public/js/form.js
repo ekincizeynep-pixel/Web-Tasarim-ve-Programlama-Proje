@@ -1,3 +1,8 @@
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+
 document.getElementById("cityForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -22,7 +27,7 @@ document.getElementById("cityForm").addEventListener("submit", function (e) {
     }))
     .filter(f => f.title);
 
-  fetch("http://localhost:3000/api/cities", {
+  fetch(`${BASE_URL}/api/cities`) , {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +39,7 @@ document.getElementById("cityForm").addEventListener("submit", function (e) {
       places,
       foods
     }),
-  })
+  }
     .then((res) => res.json())
     .then(() => {
       document.getElementById("message").innerHTML =

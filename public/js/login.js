@@ -1,11 +1,15 @@
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app";
+
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  fetch("http://localhost:3000/api/login", {
-    method: "POST",
+  fetch(`${BASE_URL}/api/login`, { 
     headers: {
       "Content-Type": "application/json",
     },
@@ -27,3 +31,4 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         "<span class='text-danger'>Sunucu hatası</span>";
     });
 });
+

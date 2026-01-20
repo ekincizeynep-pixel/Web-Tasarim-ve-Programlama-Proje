@@ -1,3 +1,8 @@
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+
 const container = document.getElementById("favoritesContainer");
 const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
@@ -6,7 +11,7 @@ if (favorites.length === 0) {
     "<p class='text-center'>Henüz favori şehir eklenmedi.</p>";
 } else {
   favorites.forEach((id) => {
-    fetch(`http://localhost:3000/api/cities/${id}`)
+    fetch(`${BASE_URL}/api/cities/${id}`)
       .then(res => res.json())
       .then(city => {
         if (!city || !city.id) return;

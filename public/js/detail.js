@@ -1,3 +1,8 @@
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app/";
+
 const params = new URLSearchParams(window.location.search);
 const cityId = params.get("id");
 
@@ -5,7 +10,7 @@ let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 const isAdmin = localStorage.getItem("isAdmin") === "true";
 const container = document.getElementById("detailContainer");
 
-fetch(`http://localhost:3000/api/cities/${cityId}`)
+fetch(`${BASE_URL}/api/cities/${cityId}`)
   .then(res => res.json())
   .then(city => {
     if (!city) {
