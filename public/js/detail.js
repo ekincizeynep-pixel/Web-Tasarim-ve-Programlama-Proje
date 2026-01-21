@@ -1,7 +1,7 @@
 const BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"
-    : "https://key-edee-web-final-proje-ef42f60a.koyeb.app";
+    : "";
 
 const params = new URLSearchParams(window.location.search);
 const cityId = params.get("id");
